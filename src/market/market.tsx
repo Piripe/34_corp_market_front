@@ -1,15 +1,15 @@
 import React from "react";
-import Market from "./market"
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
+import MarketComponent from "../market"
 
 const api_address = "http://127.0.0.1"
 let token = null
 
-export default class App extends React.Component {
+export default class Market extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { current_menu: 0, sub_menu: 0 , current_popup: 0, current_context_menu: 0, display_mode: 0, connected: 0, username: "", mouse: { pos_x: 0, pos_y: 0 } };
+    this.state = { current_menu: 1, sub_menu: 0 , current_popup: 0, current_context_menu: 0, display_mode: 0, connected: 0, username: "", mouse: { pos_x: 0, pos_y: 0 } };
 
     window.onresize = () => {
       if (window.innerWidth < 851) {
@@ -59,7 +59,7 @@ export default class App extends React.Component {
             <ul className="nav-ul-nFC27e">
               <li><Link to="/" className={`nav-list-item-f5LS2Q nav-list-button-Cidx8z ${(this.state as any).current_menu == 0 ? "selected" : ""}`} onClick={() => { this.setState({ current_menu: 0, sub_menu: 0 }); }} >Accueil</Link></li>
               <li><Link to="/market" className={`nav-list-item-f5LS2Q nav-list-button-Cidx8z ${(this.state as any).current_menu == 1 ? "selected" : ""}`} onClick={() => { this.setState({ current_menu: 1, sub_menu: 0 }); }} >Magasin</Link></li>
-              <li><Link to="/404" className={`nav-list-item-f5LS2Q nav-list-button-Cidx8z ${(this.state as any).current_menu == 2 ? "selected" : ""}`} onClick={() => { this.setState({ current_menu: 2, sub_menu: 0 }); }} >Banque</Link></li>
+              <li><Link to="/" className={`nav-list-item-f5LS2Q nav-list-button-Cidx8z ${(this.state as any).current_menu == 2 ? "selected" : ""}`} onClick={() => { this.setState({ current_menu: 2, sub_menu: 0 }); }} >Banque</Link></li>
               <li><Link to="/" className={`nav-list-item-f5LS2Q nav-list-button-Cidx8z ${(this.state as any).current_menu == 3 ? "selected" : ""}`} onClick={() => { this.setState({ current_menu: 3, sub_menu: 0 }); }} >Livraisons</Link></li>
             </ul>
           </div>
@@ -100,7 +100,7 @@ export default class App extends React.Component {
             :
             (this.state as any).current_menu == 1 ?
               // @ts-ignore
-              <Market sub_menu={(this.state as any).sub_menu} setState={(state) => {this.setState(state);}} />
+              <MarketComponent sub_menu={(this.state as any).sub_menu} setState={(state) => {this.setState(state);}} />
               :
               (this.state as any).current_menu == 2 ?
                 <div />

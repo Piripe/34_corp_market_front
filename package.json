@@ -8,7 +8,8 @@
     "main": "pathToMain",
     "scripts": {
         "build": "webpack",
-        "start": "webpack s"
+        "start": "webpack s",
+        "watch": "webpack --watch"
     },
     "devDependencies": {
         "@types/react": "^17.0.9",
@@ -19,7 +20,10 @@
         "ts-loader": "^9.2.3",
         "typescript": "^4.3.2",
         "webpack": "^5.38.1",
-        "webpack-cli": "^4.7.0",
-        "webpack-dev-server": "^3.11.2"
-    }
+        "webpack-cli": "^4.7.0"
+    },
+    "dependencies": {
+        "react-router-dom": "^5.2.0"
+    },
+    "typings": "typings/index.d.ts"
 }
