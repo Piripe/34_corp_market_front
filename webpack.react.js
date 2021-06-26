@@ -35,10 +35,5 @@ module.exports = {
   output: {
     path: __dirname + '/dist',
     filename: 'renderer.js'
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    })
-  ]
+  }
 };
